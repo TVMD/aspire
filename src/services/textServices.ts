@@ -6,6 +6,6 @@ const formatter = new Intl.NumberFormat('en-US', {
 });
 
 export const toMoneyString = (money: number, full?: boolean) => {
-  const r = formatter.format(money)
+  const r = Number.isNaN(money) ? '$0' : formatter.format(money)
   return full ? r : r.replace('$', '')
 }
